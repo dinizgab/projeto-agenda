@@ -1,0 +1,141 @@
+html {
+    --white: #FBFCFF;
+    --gray: #A1B2CD;
+    --gray-blue: #A1B2CD;
+    --bright-blue: #5699FF;
+    --blue: #3485FF;
+    --black: #0D114F;
+}
+
+.content {
+    display: grid;
+    width: 100%;
+    background-color: var(--white);
+
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 11.4rem 1fr;
+
+    grid-template-areas: 
+    'header header'
+    'left right';
+}
+
+header {
+    grid-area: header;
+    background-color: var(--white);
+    color: var(--black);
+    
+    font-size: 6rem;
+    padding: 3.4rem 0 0 5rem;
+}
+
+.bg {
+    grid-area: left;
+    background: url('/img/note.svg') no-repeat top/contain;
+}
+
+
+/* Sessão do login =============== */
+.container {
+    grid-area: right;
+    width: min(36.3rem, 100%);
+}
+
+.container h2 {
+    font-size: 3rem;
+    width: 100%;
+    color: var(--black);
+}
+
+/* Inputs =============== */
+.container input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+
+    font-size: 2rem ;
+    
+    background-color: var(--white);
+    border-radius: 1rem;
+    border: 2px solid var(--gray);
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.container input:focus {
+    border: 2px solid var(--bright-blue);
+}
+
+/* Buttons =============== */ 
+.button {
+    width: 100%;
+    height: 5rem;
+    padding: 0.75rem;
+
+    font-size: 2rem;
+    border-radius: 1rem;
+
+    color: var(--white);
+    background-color: var(--blue);
+
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.button:hover {
+    background-color: var(--bright-blue);
+    cursor: pointer;
+}
+
+.subscribe {
+    color: var(--blue);
+    background-color: var(--white);
+    border: 2px solid var(--blue)
+}
+
+.subscribe:hover {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+/* Textos =============== */
+.container label {
+    font-size: 1rem;
+    color: var(--black)
+}
+
+::placeholder {
+    color: var(--gray);
+}
+
+/* Sessão de cadastro =============== */
+
+/* Separator Line =============== */
+.separator {
+    margin: 1rem 0 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.separator div:nth-child(2) {
+    font-size: 1.6rem;
+    color: var(--gray-blue);
+
+    padding: 0 1.35rem;
+}
+
+.separator div:nth-child(1),
+.separator div:nth-child(3) {
+    background-color: var(--gray-blue);
+    width: 100%;
+    height: 1px;
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+    .container {
+        margin: 15rem 0 0 3rem;
+    }
+}
