@@ -1,7 +1,4 @@
-exports.initial = (req, res) => {
-  res.render("home");
-};
-
-exports.postForm = (req, res) => {
-  console.log(req);
-};
+exports.homePage = (req, res) => {
+    res.render("index", { page: "home" });
+  };
+  
