@@ -1,4 +1,4 @@
-const Register = require('../models/Register')
+const Register = require("../models/Register");
 
 exports.createAccountPage = (req, res) => {
   res.render("index", { page: "create-account" });
@@ -6,23 +6,20 @@ exports.createAccountPage = (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const user = new Register(req.body)
-    await user.register()
-  
-    if(user.errors.lenght > 0) {
-      req.flash('errors', user.errors)
-  
+    const user = new Register(req.body);
+    await user.register();
+
+    if (user.errors.length > 0) {
+      req.flash("errors", user.errors);
+
       req.session.save(() => {
-        return res.redirect('back')
-      })
-      
-      return
+        return res.redirect("back");
+      });
+      return;
+    } else {
+      res.redirect("/home")
     }
-    res.send(user.errors)
   } catch (e) {
-
-    console.log(e)
-    res.send(user.errors)
+    console.log(e);
   }
-
-}
+};

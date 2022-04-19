@@ -1,6 +1,5 @@
 exports.caughtRegistryErrors = (req, res, next) => {
   res.locals.errors = req.flash('errors');
-  console.log(res.locals.errors)
   next()
 }
 
