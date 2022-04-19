@@ -7,10 +7,11 @@ const login = require('./src/controllers/login')
 const create = require('./src/controllers/create')
 
 // Rotas da Home
-route.get('/home', home.homePage)
+// route.get('/home', login.teste)
 
 // Rotas da Página de login
 route.get("/login", login.loginPage)
+route.post("/login/login", login.login)
 
 // Rotas da Página de Cadastro
 route.get('/create-account', create.createAccountPage)

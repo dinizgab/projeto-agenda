@@ -6,7 +6,7 @@ exports.createAccountPage = (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const user = new Register(req.body);
+    const user = new Register();
     await user.register();
 
     if (user.errors.length > 0) {
@@ -16,9 +16,9 @@ exports.register = async (req, res) => {
         return res.redirect("back");
       });
       return;
-    } else {
-      res.redirect("/home")
     }
+    res.redirect("/home")
+
   } catch (e) {
     console.log(e);
   }

@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="/css/login.css">
 <div class="bg"></div>
 <main class="container">
   <section>
-    <h2>Faça seu login</h2>
-    <form action="/login/enter" method="POST" class="form" autocomplete="off">
+    <form action="/login/login" method="POST" class="form" autocomplete="off">
+      <%- include("./errors") %>
+      <h2>Faça seu login</h2>
       <input type="hidden" name="_csrf" value=<%= csrfToken %> />
 
       <label for="user">Usuário</label>
