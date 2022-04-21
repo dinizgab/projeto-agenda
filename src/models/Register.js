@@ -13,7 +13,7 @@ const RegisterModel = mongoose.model("Register", RegisterSchema);
 class Register {
   constructor(body) {
     this.body = body;
-    this.confirm = this.body.confirm
+    this.confirm = this.body.confirm // Confirmar a senha
     this.registeredUser = null;
     this.errors = [];
   }
@@ -66,5 +66,4 @@ class Register {
   }
 }
 
-module.exports = Register;
-module.exports = RegisterModel
+module.exports = { RegisterModel, Register }

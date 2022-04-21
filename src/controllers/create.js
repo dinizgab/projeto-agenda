@@ -1,4 +1,4 @@
-const Register = require("../models/Register");
+const { Register } = require("../models/Register");
 
 exports.createAccountPage = (req, res) => {
   res.render("index", { page: "create-account" });
@@ -6,7 +6,7 @@ exports.createAccountPage = (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const user = new Register();
+    const user = new Register(req.body);
     await user.register();
 
     if (user.errors.length > 0) {

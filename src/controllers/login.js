@@ -1,7 +1,7 @@
-const Login = require("../models/Login")
+const Login = require("../models/Login");
 
 exports.loginPage = (req, res) => {
-  res.render("index", { page: "login" })
+  res.render("index", { page: "login" });
 };
 
 exports.login = async (req, res) => {
@@ -11,16 +11,21 @@ exports.login = async (req, res) => {
 
     if (logedUser.errors.length > 0) {
       req.flash("errors", logedUser.errors);
-
       req.session.save(() => {
         return res.redirect("back");
       });
       return;
     }
-    req.session.logedUser = logedUser
-    res.redirect("/home")
 
+    req.session.logedUser = logedUser.body;
+    res.redirect("/home");
   } catch (e) {
     console.log(e);
   }
-}
+};
+
+exports.logout = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/login");
+  });
+};

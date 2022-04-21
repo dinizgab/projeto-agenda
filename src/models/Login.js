@@ -1,14 +1,14 @@
 const bcryptjs = require("bcryptjs")
-const Registered = require("./Register");
+const { RegisterModel } = require("./Register");
 
 class Login {
   constructor(body) {
     this.body = body;
-    this.Registered = Registered;
+    this.RegisterModel = RegisterModel;
     this.errors = []
   }
   async login() {
-    const user = await this.Registered.findOne({ user: this.body.user });
+    const user = await this.RegisterModel.findOne({ user: this.body.user });
     if (!user) {
       this.errors.push("Usuário inválido");
       return;

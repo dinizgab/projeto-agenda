@@ -24,7 +24,7 @@ const csrf = require("csurf");
 const {
   checkCSRFError,
   CSRFMiddleware,
-  caughtRegistryErrors,
+  globalVariables,
 } = require("./src/middlewares/middlewares");
 
 // Configurações da sessão
@@ -56,10 +56,10 @@ app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
 // Setando o arquivo de rotas, CSRF e Middlewares
-app.use(caughtRegistryErrors)
 app.use(csrf());
-app.use(checkCSRFError);
 app.use(CSRFMiddleware);
+app.use(checkCSRFError);
+app.use(globalVariables);
 app.use(routes);
 
 // Só irá rodar quando a aplicação fazer a conexão com o BD
@@ -67,5 +67,7 @@ app.on("Connected to DB", () => {
   // O app vai ficar escutando na porta 3000 e atualizando conforme mudanças nela
   app.listen(3000, () => {
     console.log("http://localhost:3000/login");
+    console.log("http://localhost:3000/create-account");
+    console.log("http://localhost:3000/home");
   });
 });

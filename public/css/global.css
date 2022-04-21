@@ -11,9 +11,11 @@
 
 html {
     --white: #FBFCFF;
-    --gray: #A1B2CD;
+    --bright-white: #E0ECFF;
+    --white-blue: #A1B2CD;
+    --gray: #4D5E77;
     --gray-blue: #A1B2CD;
-    --bright-blue: #5699FF;
+    --light-blue: #5699FF;
     --blue: #3485FF;
     --black: #0D114F;
     --red: #E83F5B;

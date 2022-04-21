@@ -1,0 +1,28 @@
+.modal-wrapper.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-wrapper {
+    position: flex;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    background: rgba(4, 9, 17, .8);
+
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal-wrapper .modal{
+    background: var(--white);
+    margin: auto;
+
+    border-radius: .8rem;
+    text-align: center;
+
+    padding: 6.4rem;
+}

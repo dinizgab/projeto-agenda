@@ -1,7 +1,8 @@
-exports.caughtRegistryErrors = (req, res, next) => {
-  res.locals.errors = req.flash('errors');
-  next()
-}
+exports.globalVariables = (req, res, next) => {
+  res.locals.errors = req.flash("errors");
+  res.locals.logedUser = req.session.logedUser;
+  next();
+};
 
 exports.checkCSRFError = (err, req, res, next) => {
   if (err && err.code === "EBADCSRFTOKEN") {

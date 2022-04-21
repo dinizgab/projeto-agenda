@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/modal.css" />
+<link rel="stylesheet" href="/css/home.css" />
+
+<main class="notebook">
+  <a href="#" id="contact">+ Novo contato</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="title">Nome</th>
+        <th class="title">Número</th>
+        <th class="title">E-mail</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Gabriel Diniz</td>
+        <td>(83) 98887-2324</td>
+        <td>gabrielpombodiniz@gmail.com</td>
+        <td class="edit">
+          <a href="#"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
+        </td>
+        <td class="delete">
+          <a href="#"
+            ><img src="/img/delete.svg" alt="Excluir contato" /> Excluir</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Gabriel Diniz</td>
+        <td>(83) 98887-2324</td>
+        <td>gabrielpombodiniz@gmail.com</td>
+        <td class="edit">
+          <a href="#"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
+        </td>
+        <td class="delete">
+          <a href="#"
+            ><img src="/img/delete.svg" alt="Excluir contato" /> Excluir</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
+<!-- MODAL -->
+<div class="modal-wrapper" id="modal-wrapper">
+  <div class="modal">
+    <h2>Cadastrar novo contato</h2>
+    <form action="home/new-contact" method="POST">
+      <label for="name">Nome</label>
+      <input type="text" name="name" placeholder="Nome" />
+
+      <label for="number">Número</label>
+      <input type="text" name="number" placeholder="Número" />
+      
+      <label for="email"></label>
+      <input type="text" name="email" placeholder="E-mail" />
+
+      <button id="cancel">Cancelar</button>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
