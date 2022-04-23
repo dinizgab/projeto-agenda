@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/css/modal.css" />
 <link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="/css/modal.css" />
 
 <main class="notebook">
   <a href="#" id="contact">+ Novo contato</a>
@@ -42,24 +42,28 @@
       </tr>
     </tbody>
   </table>
-
 </main>
+
 <!-- MODAL -->
 <div class="modal-wrapper" id="modal-wrapper">
   <div class="modal">
     <h2>Cadastrar novo contato</h2>
-    <form action="home/new-contact" method="POST">
+    <form action="home/new-contact" method="POST" autocomplete="off">
+      <input type="hidden" name="_csrf" value=<%= csrfToken %> />
+
       <label for="name">Nome</label>
       <input type="text" name="name" placeholder="Nome" />
 
       <label for="number">Número</label>
       <input type="text" name="number" placeholder="Número" />
-      
-      <label for="email"></label>
+
+      <label for="email">E-mail</label>
       <input type="text" name="email" placeholder="E-mail" />
 
-      <button id="cancel">Cancelar</button>
-      <button type="submit">Cadastrar</button>
+      <div class="buttons-container">
+        <button id="cancel" class="button cancel">Cancelar</button>
+        <button type="submit" class="button confirm">Cadastrar</button>
+      </div>
     </form>
   </div>
 </div>
