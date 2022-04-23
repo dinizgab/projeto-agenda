@@ -3,11 +3,11 @@ const newContact = document.getElementById("contact");
 const cancel = document.getElementById("cancel");
 
 function open() {
-    modalWrapper.classList.add("active");
+  modalWrapper.classList.add("active");
 }
 
 function close() {
-    modalWrapper.classList.remove("active");
+  modalWrapper.classList.remove("active");
 }
 
 newContact.addEventListener("click", open);

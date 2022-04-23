@@ -47,6 +47,7 @@
 <!-- MODAL -->
 <div class="modal-wrapper" id="modal-wrapper">
   <div class="modal">
+    <%- include("./errors") %>
     <h2>Cadastrar novo contato</h2>
     <form action="home/new-contact" method="POST" autocomplete="off">
       <input type="hidden" name="_csrf" value=<%= csrfToken %> />

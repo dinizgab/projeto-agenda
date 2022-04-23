@@ -8,7 +8,7 @@ const ContactSchema = new mongoose.Schema({
   created: { type: Date, default: Date.now },
 });
 
-const ContactModel = mongoose.model("Home", ContactSchema);
+const ContactModel = mongoose.model("Contacts", ContactSchema);
 
 class Contact {
   constructor(body) {
@@ -26,18 +26,16 @@ class Contact {
 
   validate() {
     this.cleanUp();
-    if (!validator(this.body.email))
+    if (!validator.isEmail(this.body.email))
       this.errors.push("Digite um E-mail válido");
-    if (!this.body.nome) this.errors.push("O nome é obrigatório");
+    if (!this.body.name) this.errors.push("O nome é obrigatório");
     if (!this.body.number && !this.body.email)
       this.errors.push("Digite pelo menos um contato");
   }
 
   cleanUp() {
     for (const key in this.body) {
-      if (typeof this.body[key] !== "String") {
-        this.body[key] = "";
-      }
+      if (typeof this.body[key] !== "string")  this.body[key] = "";
     }
     this.body = {
       name: this.body.name,
