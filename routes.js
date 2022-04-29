@@ -11,10 +11,11 @@ const create = require("./src/controllers/create");
 route.get("/home", home.homePage);
 
 // Rotas da Página de Contatos
-route.get("/contact/new-contact", contacts.createContact)
+route.get("/contact/new-contact", contacts.createContact);
 route.post("/contact/new-contact/register", contacts.registerNewContact);
-route.get("/contact/edit/:id", contacts.editIndex)
-route.post("/contact/edit/register-edition/:id", contacts.registerEdition)
+route.get("/contact/edit/:id", contacts.editIndex);
+route.post("/contact/edit/register-edition/:id", contacts.registerEdition);
+route.get("/contact/delete/:id", contacts.delete);
 
 // Rotas da Página de login
 route.get("/login", login.loginPage);

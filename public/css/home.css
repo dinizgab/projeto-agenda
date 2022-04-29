@@ -24,6 +24,10 @@ header {
 .notebook {
     grid-area: notebook;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .table {
@@ -33,6 +37,8 @@ header {
 
     border-collapse: separate;
     border-spacing: 0 1rem;
+
+    text-align: center;
 }
 
 .title {
@@ -47,7 +53,6 @@ td {
     background-color: var(--bright-white);
 
     vertical-align: middle;
-    text-align: center;
 }
 
 td:first-child {
@@ -67,6 +72,10 @@ a {
     color: var(--blue)
 }
 
+.delete {
+    padding-right: 2rem;
+}
+
 .edit, .delete {
     color: var(--gray);
     vertical-align: middle;
@@ -76,4 +85,10 @@ a {
 td a, td img {
     vertical-align: middle;
     display: inline-block;
+}
+
+.new-contact {
+    margin: 2rem 0 0 0;
+    color: var(--black);
+    font-size: 1.6rem;
 }

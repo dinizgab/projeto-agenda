@@ -1,6 +1,5 @@
 const { default: mongoose } = require("mongoose");
 const validator = require("validator");
-const { editIndex } = require("../controllers/contacts");
 
 const ContactSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -11,7 +10,7 @@ const ContactSchema = new mongoose.Schema({
 
 const ContactModel = mongoose.model("Contacts", ContactSchema);
 
-class Contact {
+module.exports = class Contact {
   constructor(body) {
     this.body = body;
     this.contact = null;
@@ -20,8 +19,19 @@ class Contact {
 
   static async searchForContact(id) {
     if (typeof id !== "string") return;
-    const user = await ContactModel.findById(id);
-    return user;
+    const contact = await ContactModel.findById(id);
+    return contact;
+  }
+
+  static async deleteContact(id) {
+    if (typeof id !== "string") return;
+    const contact = await ContactModel.findByIdAndDelete({ _id: id });
+    return contact;
+  }
+
+  static async showContacts() {
+    const contacts = await ContactModel.find().sort({ created: -1 });
+    return contacts;
   }
 
   async register() {
@@ -54,10 +64,9 @@ class Contact {
     if (typeof id !== "string") return;
     this.validate();
     if (this.errors.length > 0) return;
+    console.log(id);
     this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {
-      new: True,
+      new: true,
     });
   }
-}
-
-module.exports = Contact;
+};

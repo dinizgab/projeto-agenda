@@ -5,7 +5,7 @@
   <div class="modal">
     <%- include("./errors") %>
     <h2 id="title">Editar o contato</h2>
-    <form action="/contact/edit/register-edition" method="POST" autocomplete="off">
+    <form action="/contact/edit/register-edition/<%= contact._id%>" method="POST" autocomplete="off">
       <input type="hidden" name="_csrf" value=<%=csrfToken%> />
       <label for="name">Nome</label>
       <input type="text" name="name" placeholder="Nome" value="<%=contact.name%>"/>

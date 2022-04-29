@@ -2,6 +2,7 @@
 
 <main class="notebook">
   <a href="/contact/new-contact" id="contact">+ Novo contato</a>
+  <% if (contacts.length > 0) { %>
   <table class="table">
     <thead>
       <tr>
@@ -13,33 +14,26 @@
       </tr>
     </thead>
     <tbody>
+      <% contacts.forEach(contact => { %>
       <tr>
-        <td>Gabriel Diniz</td>
-        <td>(83) 98887-2324</td>
-        <td>gabrielpombodiniz@gmail.com</td>
+        <td><%= contact.name %></td>
+        <td><%= contact.number %></td>
+        <td><%= contact.email %></td>
         <td class="edit">
-          <a href="/contact/edit"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
+          <a href="/contact/edit/<%= contact._id %>"
+            ><img src="/img/edit.svg" alt="Editar contato" />Editar</a
+          >
         </td>
         <td class="delete">
-          <a href="#"
+          <a href="/contact/delete/<%= contact._id %>"
             ><img src="/img/delete.svg" alt="Excluir contato" /> Excluir</a
           >
         </td>
       </tr>
-      <tr>
-        <td>Gabriel Diniz</td>
-        <td>(83) 98887-2324</td>
-        <td>gabrielpombodiniz@gmail.com</td>
-        <td class="edit">
-          <a href="/contact/edit"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
-        </td>
-        <td class="delete">
-          <a href="#"
-            ><img src="/img/delete.svg" alt="Excluir contato" /> Excluir</a
-          >
-        </td>
-      </tr>
+      <% }) %>
     </tbody>
   </table>
+  <% } else { %>
+  <p class="new-contact">Cadastre um novo contato...</p>
+  <% } %>
 </main>
-

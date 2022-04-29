@@ -16,7 +16,7 @@ exports.registerNewContact = async (req, res) => {
       });
       return;
     }
-    res.redirect(`/contact/edit/${contact.contact._id}`);
+    res.redirect("/home");
   } catch (e) {
     console.log(e);
   }
@@ -48,3 +48,11 @@ exports.registerEdition = async (req, res) => {
     console.log(e);
   }
 };
+
+exports.delete = async (req, res) => {
+  if(!req.params.id) return
+  const contact = await Contact.deleteContact(req.params.id)
+
+  if(!contact) return res.send('404')
+  res.redirect("back")
+}
