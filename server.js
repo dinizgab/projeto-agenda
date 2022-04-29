@@ -44,8 +44,8 @@ const sessionOptions = session({
 });
 
 // app.use(helmet)
-app.use(sessionOptions);
 app.use(flash());
+app.use(sessionOptions);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

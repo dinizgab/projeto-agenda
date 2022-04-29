@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/modal.css" />
+
+<div class="modal-wrapper active">
+  <div class="modal">
+    <%- include("./errors") %>
+    <h2 id="title">Editar o contato</h2>
+    <form action="/contact/edit/register-edition" method="POST" autocomplete="off">
+      <input type="hidden" name="_csrf" value=<%=csrfToken%> />
+      <label for="name">Nome</label>
+      <input type="text" name="name" placeholder="Nome" value="<%=contact.name%>"/>
+      <label for="number">Número</label>
+      <input type="text" name="number" placeholder="Número" value="<%=contact.number%>"/>
+      <label for="email">E-mail</label>
+      <input type="text" name="email" placeholder="E-mail" value="<%=contact.email%>"/>
+      <div class="buttons-container">
+        <button type="submit" class="button confirm">Confirmar edição</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="/css/home.css" />
-<link rel="stylesheet" href="/css/modal.css" />
 
 <main class="notebook">
-  <a href="#" id="contact">+ Novo contato</a>
+  <a href="/contact/new-contact" id="contact">+ Novo contato</a>
   <table class="table">
     <thead>
       <tr>
@@ -19,7 +18,7 @@
         <td>(83) 98887-2324</td>
         <td>gabrielpombodiniz@gmail.com</td>
         <td class="edit">
-          <a href="#"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
+          <a href="/contact/edit"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
         </td>
         <td class="delete">
           <a href="#"
@@ -32,7 +31,7 @@
         <td>(83) 98887-2324</td>
         <td>gabrielpombodiniz@gmail.com</td>
         <td class="edit">
-          <a href="#"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
+          <a href="/contact/edit"><img src="/img/edit.svg" alt="Editar contato" />Editar</a>
         </td>
         <td class="delete">
           <a href="#"
@@ -44,27 +43,3 @@
   </table>
 </main>
 
-<!-- MODAL -->
-<div class="modal-wrapper" id="modal-wrapper">
-  <div class="modal">
-    <%- include("./errors") %>
-    <h2>Cadastrar novo contato</h2>
-    <form action="home/new-contact" method="POST" autocomplete="off">
-      <input type="hidden" name="_csrf" value=<%= csrfToken %> />
-
-      <label for="name">Nome</label>
-      <input type="text" name="name" placeholder="Nome" />
-
-      <label for="number">Número</label>
-      <input type="text" name="number" placeholder="Número" />
-
-      <label for="email">E-mail</label>
-      <input type="text" name="email" placeholder="E-mail" />
-
-      <div class="buttons-container">
-        <button id="cancel" class="button cancel">Cancelar</button>
-        <button type="submit" class="button confirm">Cadastrar</button>
-      </div>
-    </form>
-  </div>
-</div>

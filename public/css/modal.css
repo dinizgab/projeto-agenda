@@ -1,9 +1,4 @@
 /* Modal =============== */
-.modal-wrapper.active{
-    visibility: visible;
-    opacity: 1;
-}
-
 .modal-wrapper {
     position: fixed;
     width: 100vw;
@@ -12,13 +7,9 @@
     left: 0;
     display: flex;
 
-    background: rgba(4, 9, 17, .8);
-
-    visibility: hidden;
-    opacity: 0;
 }
 
-.modal-wrapper .modal{
+.modal-wrapper .modal {
     background: var(--white);
     width: min(59rem, 90%);
     margin: auto;
@@ -31,7 +22,7 @@
 
 input {
     margin-top: .5rem;
-    padding: 1rem;
+    padding: 0.8rem;
 }
 
 /* Textos =============== */

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/modal.css" />
+
+<div class="modal-wrapper active">
+  <div class="modal">
+    <%- include("./errors") %>
+    <h2 id="title">Cadastrar um novo contato</h2>
+    <form action="/contact/new-contact/register" method="POST" autocomplete="off">
+      <input type="hidden" name="_csrf" value=<%=csrfToken%> />
+      <label for="name">Nome</label>
+      <input type="text" name="name" placeholder="Nome" />
+      <label for="number">Número</label>
+      <input type="text" name="number" placeholder="Número" />
+      <label for="email">E-mail</label>
+      <input type="text" name="email" placeholder="E-mail" />
+      <div class="buttons-container">
+        <button type="submit" class="button confirm">Cadastrar</button>
+      </div>
+    </form>
+  </div>
+</div>
